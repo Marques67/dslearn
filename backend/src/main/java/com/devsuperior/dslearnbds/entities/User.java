@@ -3,6 +3,7 @@ package com.devsuperior.dslearnbds.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,6 +23,9 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> role = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Notification> notifications;
 
     public User() {}
 
@@ -71,6 +75,10 @@ public class User implements Serializable {
 
     public void setRole(Set<Role> role) {
         this.role = role;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
     }
 
     @Override
