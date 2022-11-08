@@ -73,10 +73,6 @@ public class User implements Serializable {
         return role;
     }
 
-    public void setRole(Set<Role> role) {
-        this.role = role;
-    }
-
     public List<Notification> getNotifications() {
         return notifications;
     }
